@@ -1,13 +1,12 @@
-import React, { useDeferredValue } from 'react';
+import React ,{ useDeferredValue } from "react";
 import { useEffect, useState } from 'react';
-import './App.css';
-import Community from './Pages/Community';
-import Notifications from './Pages/Notifications';
 import jwt_decode from "jwt-decode";
+import Community from "./Community";
+import Notifications from "./Notifications";
 
+function Authentication(){
 
-function App() {
-  const [user,setUser]=useState({});
+const [user,setUser]=useState({});
 
 
   function handleCallBackResponse(response){
@@ -33,9 +32,9 @@ function App() {
     );
   }
   ,[]);
-  return (
-    <div className="bg-[#F2F3F7]">
-      <div id="signInDiv"></div>
+    return (
+    
+      <div id="signInDiv">
       {Object.keys(user).length!=0 &&
         <button onClick={(e)=>handleSignOut(e)}>Sign Out </button>
       }
@@ -49,8 +48,7 @@ function App() {
       }
       <Community />
       <Notifications />
-    </div>
-  )
+      </div>)
 }
 
-export default App
+export default Authentication;
