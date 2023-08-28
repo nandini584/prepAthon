@@ -24,4 +24,5 @@ const ParticipantSchema = new Schema({
   },
 });
 
-module.exports = ParticipantSchema;
+const Participant = mongoose.model("Participant", ParticipantSchema);
+module.exports = Participant;
