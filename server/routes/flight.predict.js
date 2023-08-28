@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/register", (req, res) => {
-  res.status(200).json({ msg: "successfully registered" });
+router.post("/predict-flight-price", (req, res) => {
+  res.status(200).json({ msg: "view your trip here" });
 });
 
-router.post("/login", (req, res) => {
+router.post("/recommend-booking-time", (req, res) => {
   res.status(200).json({ msg: "successfully logged in" });
 });
 
