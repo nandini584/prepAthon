@@ -9,13 +9,7 @@ router.post("/login", (req, res) => {
   res.status(200).json({ msg: "successfully logged in" });
 });
 
-router.post("/profile", (req, res) => {
-  res.status(200).json({ msg: "this is your user profile" });
-});
 
-router.post("/update-profile", (req, res) => {
-  res.status(200).json({ msg: "update your profile here" });
-});
 
 router.get("/all-trips", (req, res) => {
   res.status(200).json({ msg: "get all trips here" });
