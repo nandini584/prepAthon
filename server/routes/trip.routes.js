@@ -1,22 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/register", (req, res) => {
-  res.status(200).json({ msg: "successfully registered" });
-});
-
-router.post("/login", (req, res) => {
-  res.status(200).json({ msg: "successfully logged in" });
-});
-
-router.post("/profile", (req, res) => {
-  res.status(200).json({ msg: "this is your user profile" });
-});
-
-router.post("/update-profile", (req, res) => {
-  res.status(200).json({ msg: "update your profile here" });
-});
-
 router.get("/all-trips", (req, res) => {
   res.status(200).json({ msg: "get all trips here" });
 });
@@ -31,6 +15,10 @@ router.post("/view-trip/:id", (req, res) => {
 
 router.post("/join-trip/:id", (req, res) => {
   res.status(200).json({ msg: "join trips here" });
+});
+
+router.post("/get-users-on-trip/:trip-id", (req, res) => {
+  res.status(200).json({ msg: "this is your user profile" });
 });
 
 router.put("/edit-trip", (req, res) => {
