@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 
 const validateEmail = require("../middlewares/emailValidator");
 
+//for storing user info
+
 const UserSchema = new Schema({
   email: {
     type: String,
