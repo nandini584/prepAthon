@@ -18,6 +18,20 @@ app.use(cors());
 app.use("/", userRoutes);
 app.use("/", featRoutes);
 
+const db = process.env.MONGO_URI;
+mongoose
+  .connect(db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Successfully connected to the database");
+  })
+  .catch((error) => {
+    console.log("Couldn't connect to the database");
+    console.log(error);
+  });
+
 const port = process.env.PORT;
 
 app.listen(port, () => {
