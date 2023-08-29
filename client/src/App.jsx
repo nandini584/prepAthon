@@ -29,7 +29,7 @@ function App() {
   }
   useEffect(()=>{
     google.accounts.id.initialize({
-      client_id:"34800752652-r2srcuo6lqp6j4csovrdst212agbbqb5.apps.googleusercontent.com",
+      client_id: import.meta.env.REACT_APP_GOOGLE_CLIENT_ID,
       callback : handleCallBackResponse
     });
     google.accounts.id.renderButton(
@@ -42,7 +42,7 @@ function App() {
     <div className="bg-[#F2F3F7]">
       <div id="signInDiv"></div>
       {Object.keys(user).length!=0 &&
-        <button onClick={(e)=>handleSignOut(e)}>Sign Out </button>
+        <button onClick={(e)=>handleSignOut(e)}>Sign Out</button>
       }
       
       {

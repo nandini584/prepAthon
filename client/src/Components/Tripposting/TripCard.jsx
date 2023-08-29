@@ -2,7 +2,7 @@ import React from 'react'
 
 const TripCard = (props) => {
   return (
-    <div className='flex flex-row items-center justify-around p-5 drop-shadow-lg w-[700px] h-[180px] text-[#130223] bg-white rounded-2xl'>
+    <div className='flex flex-row items-center justify-around p-5 drop-shadow-lg w-[700px] h-[180px] text-[#130223] bg-white rounded-2xl mb-5'>
         <div className='flex flex-col'>
             <h1 className='text-xl font-bold mb-1'>{props.title}</h1>
             <h1 className='text-base opacity-60 mb-3'>{props.description}</h1>
@@ -13,7 +13,7 @@ const TripCard = (props) => {
             <button className='text-white text-sm py-2 px-8 rounded-lg bg-[#6041B0] w-28'>Join in</button>
         </div>
         <div>
-            <img src={props.img} alt="location" />
+            <img src={props.img} alt="location" className='w-48'/>
         </div>
     </div>
   )
