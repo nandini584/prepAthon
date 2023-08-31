@@ -3,13 +3,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { getAirports,getFlightPrices } from "./services/flights";
 
-
-
-
-  
-
-
-
 function FlightPrices() {
     const airports = getAirports();
     const [sourceCity, setSourceCity] = useState(airports[0].city);
