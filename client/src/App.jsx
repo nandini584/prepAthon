@@ -12,6 +12,7 @@ import Location from './Pages/Location';
 import UserProfile from './Pages/UserProfile';
 import Transport from './Pages/Transport';
 import FlightPrices from './Pages/FlightPrices/FlightPrices';
+import LiveLocation from './Pages/LiveLocation';
 function App() {
   const [user,setUser]=useState({});
 
@@ -63,6 +64,7 @@ function App() {
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/flights" element={<FlightPrices />} />
+          <Route path="/livelocation" element={<LiveLocation />} />
         </Routes>
       </BrowserRouter>
     </div>
