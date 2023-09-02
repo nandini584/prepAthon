@@ -10,7 +10,7 @@ const NavbarIcon = ({ iconSrc }) => {
       onMouseLeave={() => setHover(false)}
     >
       <img src={iconSrc} alt="Icon" className="w-8 h-8" />
-      {hover && <div className="w-3 h-3 rounded-full bg-customRed"></div>}
+      {hover && <div className="w-3 h-3 rounded-full bg-white"></div>}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Members from '../Components/Tripposting/Members'
 import TripHead from '../Components/Tripposting/TripHead'
 import Create from '../Components/Tripposting/Create'
 const Tripposting = () => {
+  const numComponents = 5;
   return (
     <div className='flex flex-row justify-between'>
       <div>
@@ -19,12 +20,11 @@ const Tripposting = () => {
         <Create />
         </div>
         <div className='ml-10 overflow-y-scroll flex flex-col '>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
+      {Array.from({ length: numComponents }, (_, index) => (
+          <div>
+          <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
+          </div>
+        ))}
         </div>
       </div>
       <div>
