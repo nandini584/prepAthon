@@ -8,7 +8,11 @@ import Location from './Pages/Location';
 import UserProfile from './Pages/UserProfile';
 import Transport from './Pages/Transport';
 import FlightPrices from './Pages/FlightPrices/FlightPrices';
+
+import LiveLocation from './Pages/LiveLocation';
+
 import SingleTrip from './Pages/SingleTripPlanning';
+
 function App() {
   return (
     <div className="bg-[#F2F3F7]">
@@ -23,7 +27,11 @@ function App() {
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/flights" element={<FlightPrices />} />
+
+          <Route path="/livelocation" element={<LiveLocation />} />
+
           <Route path="/singletrip/:tripid" element={<SingleTrip />} />
+
         </Routes>
       </BrowserRouter>
     </div>
