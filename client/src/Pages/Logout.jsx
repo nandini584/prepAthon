@@ -4,7 +4,7 @@ const Logout = (userDetails) => {
     const user=userDetails.user;
     const logout=()=>{
         window.open(
-            `${import.meta.env.REACT_APP_API_URL}/auth/logout`,
+            `${import.meta.env.REACT_APP_API_URL}/signup`,
             "_self"
         )
     }

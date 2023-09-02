@@ -18,7 +18,7 @@ const Community = () => {
       <div>
       <Tab/>
       </div>
-      <div className='flex flex-row flex-wrap justify-center gap-7 items-center'>
+      <div className='flex flex-row flex-wrap justify-center gap-7 items-center overflow-y-scroll h-[65vh]'>
       {
         Array.from({ length: 5 }).map((_, i) => (
           <Link to='/tripposting/:communityid'>

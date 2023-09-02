@@ -43,7 +43,7 @@ function App() {
           <Route path="/transport" element={<Transport />} />
           <Route path="/flights" element={<FlightPrices />} />
           <Route path="/singletrip/:tripid" element={<SingleTrip />} />
-          <Route path="/signup" element={user?<Navigate to='/'/>:<Signup />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={user?<Navigate to='/'/>:<Login />} />
           <Route path="/logout" element={user?<Logout/>:<Navigate to='/signup' />} />
         </Routes>
