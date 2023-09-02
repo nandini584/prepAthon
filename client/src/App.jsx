@@ -1,8 +1,4 @@
-import React, { useDeferredValue } from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
 import Community from './Pages/Community';
-import jwt_decode from "jwt-decode";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Tripposting from './Pages/Tripposting';
 import Home from './Pages/Home';
@@ -12,47 +8,14 @@ import Location from './Pages/Location';
 import UserProfile from './Pages/UserProfile';
 import Transport from './Pages/Transport';
 import FlightPrices from './Pages/FlightPrices/FlightPrices';
+
 import LiveLocation from './Pages/LiveLocation';
+
+import SingleTrip from './Pages/SingleTripPlanning';
+
 function App() {
-  const [user,setUser]=useState({});
-
-  function handleCallBackResponse(response){
-    console.log("Encoded JWT ID token : " + response.credential);
-    var userObject=jwt_decode(response.credential);
-    console.log(userObject);
-    setUser(userObject);
-    document.getElementById("signInDiv").hidden=true;
-  }
-
-  function handleSignOut(event){
-      setUser({});
-      document.getElementById("signInDiv").hidden=false;
-  }
-  useEffect(()=>{
-    google.accounts.id.initialize({
-      client_id: import.meta.env.REACT_APP_GOOGLE_CLIENT_ID,
-      callback : handleCallBackResponse
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-      {theme: "outline", size :"large"}
-    );
-  }
-  ,[]);
   return (
     <div className="bg-[#F2F3F7]">
-      <div id="signInDiv"></div>
-      {Object.keys(user).length!=0 &&
-        <button onClick={(e)=>handleSignOut(e)}>Sign Out</button>
-      }
-      
-      {
-        user && 
-        <div>
-          <img src={user.picture}></img>
-          <h3>{user.name}</h3>
-        </div>
-      }
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -60,11 +23,15 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/notification" element={<Notification />} />
           <Route path="/location" element={<Location />} />
-          <Route path="/tripposting" element={<Tripposting />} />
+          <Route path="/tripposting/:communityid" element={<Tripposting />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/flights" element={<FlightPrices />} />
+
           <Route path="/livelocation" element={<LiveLocation />} />
+
+          <Route path="/singletrip/:tripid" element={<SingleTrip />} />
+
         </Routes>
       </BrowserRouter>
     </div>
