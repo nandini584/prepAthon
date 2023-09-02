@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import NotificationTemp from "../Components/Notification/NotificationTemp"
 import Navbar from '../Components/Navbar'
 import Topbar from '../Components/Topbar'
 
 const Notifications = () => {
+  const [notification, setNotification] = useState([])
   return (
     <div className='flex flex-row w-[95vw] h-[100vh]'>
       <Navbar/>
