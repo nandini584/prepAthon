@@ -1,8 +1,4 @@
-import React, { useDeferredValue } from 'react';
-import { useEffect, useState } from 'react';
-import './App.css';
 import Community from './Pages/Community';
-import jwt_decode from "jwt-decode";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Tripposting from './Pages/Tripposting';
 import Home from './Pages/Home';
@@ -12,47 +8,31 @@ import Location from './Pages/Location';
 import UserProfile from './Pages/UserProfile';
 import Transport from './Pages/Transport';
 import FlightPrices from './Pages/FlightPrices/FlightPrices';
-import LiveLocation from './Pages/LiveLocation';
+import SingleTrip from './Pages/SingleTripPlanning';
+import Signup from './Pages/Signup';
+import Login from './Pages/Login';
+import Logout from './Pages/Logout';
+import axios from 'axios';
+import { Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import {TripProvider} from './context/TripContext'
 function App() {
-  const [user,setUser]=useState({});
-
-  function handleCallBackResponse(response){
-    console.log("Encoded JWT ID token : " + response.credential);
-    var userObject=jwt_decode(response.credential);
-    console.log(userObject);
-    setUser(userObject);
-    document.getElementById("signInDiv").hidden=true;
+  const [user, setUser] = useState({});
+  const getUser = async () => {
+    try {
+      const url = `${import.meta.env.REACT_APP_API_URL}/profile`;
+      const {data}=await axios.get(url,{withCredentials:true});
+      setUser(data.user._json);
+    } catch (err) {
+      console.log(err);
+    }
   }
-
-  function handleSignOut(event){
-      setUser({});
-      document.getElementById("signInDiv").hidden=false;
-  }
-  useEffect(()=>{
-    google.accounts.id.initialize({
-      client_id: import.meta.env.REACT_APP_GOOGLE_CLIENT_ID,
-      callback : handleCallBackResponse
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-      {theme: "outline", size :"large"}
-    );
-  }
-  ,[]);
+  useEffect(() => {
+    getUser();
+  }, [])
   return (
+    <TripProvider>
     <div className="bg-[#F2F3F7]">
-      <div id="signInDiv"></div>
-      {Object.keys(user).length!=0 &&
-        <button onClick={(e)=>handleSignOut(e)}>Sign Out</button>
-      }
-      
-      {
-        user && 
-        <div>
-          <img src={user.picture}></img>
-          <h3>{user.name}</h3>
-        </div>
-      }
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -60,14 +40,17 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/notification" element={<Notification />} />
           <Route path="/location" element={<Location />} />
-          <Route path="/tripposting" element={<Tripposting />} />
+          <Route path="/tripposting/:communityid" element={<Tripposting />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/transport" element={<Transport />} />
           <Route path="/flights" element={<FlightPrices />} />
-          <Route path="/livelocation" element={<LiveLocation />} />
+          <Route path="/singletrip/:tripid" element={<SingleTrip />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={user?<Navigate to='/'/>:<Login />} />
+          <Route path="/logout" element={user?<Logout/>:<Navigate to='/signup' />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </div></TripProvider> 
   )
 }
 

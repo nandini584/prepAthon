@@ -1,12 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import TripCard from '../Components/Tripposting/TripCard'
-import Demo from '../assets/demo.svg'
+import { useTrip} from '../context/TripContext'
 import Navbar from '../Components/Navbar'
 import Members from '../Components/Tripposting/Members'
 import TripHead from '../Components/Tripposting/TripHead'
 import Create from '../Components/Tripposting/Create'
+
 const Tripposting = () => {
+  const { tripdata } = useTrip();
+  const [selectedTrip, setSelectedTrip] = useState(null);
+ 
   return (
+    
     <div className='flex flex-row justify-between'>
       <div>
       <Navbar/>
@@ -19,12 +24,13 @@ const Tripposting = () => {
         <Create />
         </div>
         <div className='ml-10 overflow-y-scroll flex flex-col '>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
-        <TripCard title="Palawan, Philippines" description="Palawan is envisioned to become a premier province Lroem Ipsum Blah blah blah ad and  the am wdhuw vidi visioon  dhw uewe lkj etc..." date="20/07/2023 - 29/07/2023" destination="Philipinnies" img={Demo}/>
+          {
+            tripdata.map((trip,index)=>(
+              <div key={index}>
+              <TripCard/>
+              </div>
+            ))
+          }
         </div>
       </div>
       <div>
