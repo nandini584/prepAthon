@@ -24,13 +24,7 @@ const Tripposting = () => {
         <Create />
         </div>
         <div className='ml-10 overflow-y-scroll flex flex-col '>
-          {
-            tripdata.map((trip,index)=>(
-              <div key={index}>
-              <TripCard/>
-              </div>
-            ))
-          }
+          <TripCard/>
         </div>
       </div>
       <div>
