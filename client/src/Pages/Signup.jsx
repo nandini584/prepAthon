@@ -27,7 +27,7 @@ const Signup = () => {
                 <input type="password" name='Password' placeholder='Password' className='border-2 py-4 rounded-lg font-inter font-regular text-sm border-[#54535342] pl-5 mb-10'/>
             </div>
             <div className="flex flex-row items-center justify-center font-inter font-bold text-sm ">
-            <Link to="/api/v1/projectdashboard/:userid"><button type="submit" >Sign up</button></Link>
+            <Link to=""><button type="submit" >Sign up</button></Link>
             </div>
             </form>
 

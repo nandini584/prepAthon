@@ -15,6 +15,7 @@ import Logout from './Pages/Logout';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import {TripProvider} from './context/TripContext'
 function App() {
   const [user, setUser] = useState({});
   const getUser = async () => {
@@ -30,6 +31,7 @@ function App() {
     getUser();
   }, [])
   return (
+    <TripProvider>
     <div className="bg-[#F2F3F7]">
       <BrowserRouter>
         <Routes>
@@ -48,7 +50,7 @@ function App() {
           <Route path="/logout" element={user?<Logout/>:<Navigate to='/signup' />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </div></TripProvider> 
   )
 }
 

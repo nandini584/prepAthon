@@ -26,7 +26,7 @@ const Login = () => {
                 <input type="text" name='Password' placeholder='Password' className='border-2 py-4 rounded-lg font-inter font-regular text-sm border-[#54535342] pl-5 mb-10'/>
             </div>
             <div className="flex flex-row items-center justify-center font-inter font-bold text-sm ">
-            <Link to="/api/v1/projectdashboard/:userid"><button type="submit" >Sign in</button></Link>
+            <Link to=""><button type="submit" >Sign in</button></Link>
             </div>
             </form>
 
