@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
+var index = require("../controllers/mail.notifications");
 
-router.get("/emergency-alerts", (req, res) => {
-  res.status(200).json({ msg: "Emergency alert" });
-});
+router.post("/send", index.send);
 
 module.exports = router;
