@@ -8,6 +8,7 @@ const passport = require("passport");
 const cookieSession = require("cookie-session");
 const passportSetup = require("./authentication/passport");
 const authRoute= require("./routes/auth");
+const mailRoute = require("./routes/emergency")
 require("dotenv").config();
 
 const userRoutes = require("./routes/user.routes");
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/auth", authRoute)
 app.use("/", userRoutes);
+app.use("/",mailRoute);
 // app.use("/", featRoutes);
 app.use(
   cookieSession({

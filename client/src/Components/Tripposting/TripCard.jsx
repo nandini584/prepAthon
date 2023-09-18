@@ -2,13 +2,12 @@ import React from 'react'
 import {useTrip} from '../../context/TripContext'
 const TripCard = () => {
   const {tripdata}=useTrip()
-
   return (
-    <div className='flex flex-row items-center justify-around p-5 drop-shadow-lg w-[700px] h-[180px] text-[#130223] bg-white rounded-2xl mb-5'>
-       
+    <>
           {
             tripdata.map((trip,index)=>(
               <div key={index}>
+                <div className='flex flex-row items-center justify-around p-5 drop-shadow-lg w-[700px] h-[180px] text-[#130223] bg-white rounded-2xl mb-5'>
                   <div className='flex flex-col'>
             <h1 className='text-xl font-bold mb-1'>{trip.tripname}</h1>
             <h1 className='text-base opacity-60 mb-3'>{trip.tripdescription}</h1>
@@ -20,12 +19,12 @@ const TripCard = () => {
         </div>
         <div>
             <img src={trip.tripimg} alt="location" className='w-48'/>
-        </div>
+        </div></div>
               </div>
             ))
           }
          
-    </div>
+    </>
   )
 }
 
